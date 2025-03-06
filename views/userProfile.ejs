@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= profile.name %>'s Profile</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="profile-header">
+            <img src="/images/uploads/<%= profile.profilePic || 'default.jpg' %>" alt="Profile picture" width="100">
+            <div class="profile-info">
+                <h1><%= profile.name %> 
+                    <% if (isOnline) { %>
+                        <span class="online-badge">Online</span>
+                    <% } %>
+                </h1>
+                <p>@<%= profile.username %></p>
+                <p>Followers: <%= followersCount %></p>
+                <% if (!isOwnProfile) { %>
+                    <form action="<%= isFollowing ? '/unfollow/' : '/follow/' %><%= profile.id %>" method="POST">
+                        <button type="submit" class="btn <%= isFollowing ? 'unfollow' : 'follow' %>">
+                            <%= isFollowing ? 'Unfollow' : 'Follow' %>
+                        </button>
+                    </form>
+                <% } %>
+            </div>
+        </div>
+
+        <div class="posts-section">
+            <h2>Posts</h2>
+            <% profile.posts.forEach(post => { %>
+                <div class="post">
+                    <p><%= post.content %></p>
+                    <div class="post-actions">
+                        <form action="/like/<%= post.id %>" method="GET">
+                            <button type="submit" class="btn">
+                                ❤️ <%= post.likes.length %>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+        
+        <div class="navigation">
+            <a href="/users" class="btn">Back to Users</a>
+        </div>
+    </div>
+</body>
+</html>

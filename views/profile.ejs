@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    
+    <div class="w-full min-h-screen bg-zinc-900 text-white p-10">
+
+        <div class="w-full flex justify-end">
+        <a class="bg-red-500 rounded-md px-3 py-2 text-sm mb-5 inline-block" href="/logout">Logout</a>
+
+    </div>
+
+        <div class="flex items-start gap-3">
+
+            <div class="w-10 h-10 rounded-md">
+
+                <img class="w-full h-full object-cover" src="/images/uploads/<%= user.profilePic %>" alt="Profile Picture">
+            </div>
+            <h3 class="text-3xl"><span class="font-light">Hello</span>, <%= user.name %> 👋🏻</h3>
+        </div>
+        <h5 class="mb-5 mt-3">You can create a new post</h5>
+
+        <form method="post" action="/post">
+
+            
+            <textarea placeholder="What's on your mind?" class="p-3 outline-none w-1/3 resize-none bg-transparent border-2 border-zinc-800 rounded-md" name="content" id=""></textarea>
+
+            <input type="submit" class="px-3 py-2 w-40 bg-blue-500  block rounded-md mt-2" value="Create new post">
+
+
+        </form>
+
+        <div class="posts mt-20">
+
+            <h3 class="text-zinc-400">Your posts here</h3>
+
+            <div class="postcontainer mt-5">
+
+                <% user.posts.forEach(post => { %>
+                    <div class="post w-1/3 p-4 mb-4 rounded-md border-[1px] border-zinc-700">
+                        <h4 class="text-blue-500 mb-2">@<%= user.username %></h4>
+                        <p class="text-sm tracking-tight"><%= post.content %></p>
+                        <div class="mt-2">
+                            <p class="text-sm text-zinc-400"><%= post.likes ? post.likes.length : 0 %> likes</p>
+                            <a href="/like/<%= post.id %>" class="text-blue-500 hover:text-blue-600">
+                                <%= post.likes && post.likes.includes(user.id) ? 'Unlike' : 'Like' %>
+                            </a>
+                            <a class="text-zinc-600" href="/edit/<%= post.id %>">edit</a>
+                            <form action="/delete/<%= post.id %>" method="POST" class="inline">
+                                <button type="submit" class="text-red-500 hover:text-red-600 ml-2">Delete</button>
+                            </form>
+                        </div>
+                        <small>Posted on: <%= new Date(post.createdAt).toLocaleString() %></small>
+                    </div>
+                <% }) %>
+                
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+</body>
+</html>

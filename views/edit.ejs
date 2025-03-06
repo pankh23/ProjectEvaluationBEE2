@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Post</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-zinc-900 text-white min-h-screen">
+    <div class="container mx-auto p-10">
+        <div class="max-w-2xl mx-auto">
+            <h1 class="text-3xl font-light mb-8">Edit Post</h1>
+            
+            <form action="/update/<%= post.id %>" method="POST" class="space-y-4">
+                <div class="form-group">
+                    <textarea 
+                        name="content" 
+                        rows="6" 
+                        required 
+                        class="w-full p-4 bg-transparent border-2 border-zinc-800 rounded-md resize-none focus:border-blue-500 focus:outline-none text-white"
+                    ><%= post.content %></textarea>
+                </div>
+                
+                <div class="flex gap-3">
+                    <button type="submit" class="px-6 py-2 bg-blue-500 hover:bg-blue-600 rounded-md transition-colors">
+                        Update Post
+                    </button>
+                    <a href="/profile" class="px-6 py-2 bg-zinc-800 hover:bg-zinc-700 rounded-md transition-colors">
+                        Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Users</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Currently Online Users</h1>
+        <div class="users-grid">
+            <% users.forEach(user => { %>
+                <div class="user-card">
+                    <img src="/images/uploads/<%= user.profilePic || 'default.jpg' %>" alt="Profile picture">
+                    <h3><%= user.name %></h3>
+                    <p>@<%= user.username %></p>
+                    <p>Followers: <%= user.followersCount %></p>
+                    <a href="/user/<%= user.id %>" class="btn">View Profile</a>
+                    <form action="<%= user.isFollowing ? '/unfollow/' : '/follow/' %><%= user.id %>" method="POST">
+                        <button type="submit" class="btn <%= user.isFollowing ? 'unfollow' : 'follow' %>">
+                            <%= user.isFollowing ? 'Unfollow' : 'Follow' %>
+                        </button>
+                    </form>
+                </div>
+            <% }); %>
+        </div>
+        <a href="/profile" class="btn">Back to Profile</a>
+    </div>
+</body>
+</html>

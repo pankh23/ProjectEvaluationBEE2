@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Users</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>All Users</h1>
+        
+        <!-- Add debug info -->
+        <% if (users.length === 0) { %>
+            <div class="no-users">
+                <p>No other users found.</p>
+                <p>Try registering a new account to see users here!</p>
+            </div>
+        <% } %>
+
+        <div class="users-grid">
+            <% users.forEach(user => { %>
+                <div class="user-card">
+                    <img src="/images/uploads/<%= user.profilePic %>" alt="Profile picture" class="profile-img" onerror="this.src='/images/uploads/default.jpg'">
+                    <div class="user-info">
+                        <h3><%= user.name %></h3>
+                        <p>@<%= user.username %></p>
+                        <p>Followers: <%= user.followersCount %></p>
+                        <% if (user.isOnline) { %>
+                            <p class="online-status">🟢 Online</p>
+                        <% } %>
+                        <div class="user-actions">
+                            <a href="/user/<%= user.id %>" class="btn view-profile">View Profile</a>
+                            <form action="<%= user.isFollowing ? '/unfollow/' : '/follow/' %><%= user.id %>" method="POST" class="follow-form">
+                                <button type="submit" class="btn <%= user.isFollowing ? 'unfollow' : 'follow' %>">
+                                    <%= user.isFollowing ? 'Unfollow' : 'Follow' %>
+                                </button>
+                            </form>
+                        </div>
+                        <% if (user.latestPost) { %>
+                            <div class="latest-post">
+                                <p><strong>Latest post:</strong> <%= user.latestPost.content %></p>
+                                <button onclick="handleLike('<%= user.latestPost.id %>', this)" 
+                                        class="btn like-btn <%= user.latestPost.likes.includes(currentUser.id) ? 'liked' : '' %>">
+                                    ❤️ <span class="like-count"><%= user.latestPost.likes.length %></span>
+                                </button>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+        <div class="navigation">
+            <a href="/profile" class="btn">Back to Profile</a>
+            <a href="/online-users" class="btn">See Online Users</a>
+        </div>
+    </div>
+    <script>
+    async function handleLike(postId, button) {
+        try {
+            const response = await fetch(`/like/${postId}`, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (!response.ok) throw new Error('Network response was not ok');
+            
+            const data = await response.json();
+            const countSpan = button.querySelector('.like-count');
+            countSpan.textContent = data.likes;
+            
+            if (data.isLiked) {
+                button.classList.add('liked');
+            } else {
+                button.classList.remove('liked');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+    </script>
+</body>
+</html>

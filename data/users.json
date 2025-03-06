@@ -1,0 +1,146 @@
+{
+  "users": [
+    {
+      "id": "d492d569-0bcc-47fd-8b92-4e5413616bc0",
+      "username": "n",
+      "email": "n@gmail.com",
+      "age": "23",
+      "name": "n",
+      "password": "$2a$10$n54YeKe6agSkOtaERabbrew2SXOgM1.TmGZJMzkHU2RT0mYfo7t1.",
+      "posts": [],
+      "profilePic": null
+    },
+    {
+      "id": "a631cf25-7601-4fa4-bf0d-6a354291784a",
+      "username": "n",
+      "email": "n@gmail.com",
+      "age": "34",
+      "name": "n",
+      "password": "$2a$10$dtcr/R9ABq6tKXPIhQJLoOc/NKhO1Q/j/6J/6Il8OimzJFnS1LfF6",
+      "posts": [],
+      "profilePic": null
+    },
+    {
+      "id": "38a906c3-8b2c-4bc1-a519-de5492d95693",
+      "username": "m",
+      "email": "m@gmail.com",
+      "age": "3",
+      "name": "m",
+      "password": "$2a$10$dV0La6X5d0.S38IStITrqOPhjjhiILD0MRtDH19B0bUs6s5j3YOou",
+      "posts": [],
+      "profilePic": null
+    },
+    {
+      "id": "e4c97490-80d2-4b16-aee7-a2a611e1587f",
+      "username": "p",
+      "email": "p@gmail.com",
+      "age": "7",
+      "name": "p",
+      "password": "$2a$10$BKQR/YbH/c1/rPpIShOTquWMgg3LhIzXC0ijXRmdTvexsIzmpGh3a",
+      "posts": [],
+      "profilePic": null
+    },
+    {
+      "id": "64004e17-17f1-4d7f-924e-98985698a831",
+      "username": "g",
+      "email": "g@gmail.com",
+      "age": "3",
+      "name": "g",
+      "password": "$2a$10$tMZBEBrC6w.RkI/LpnOjXuCRTMDrMVznlMeUOSPEE2EE9SlLW8tNe",
+      "posts": [],
+      "profilePic": null
+    },
+    {
+      "id": "4eef913d-260c-4187-9cec-b32aceff367b",
+      "username": "b",
+      "email": "b@gmail.com",
+      "age": "4",
+      "name": "b",
+      "password": "$2a$10$tByg8OeZNnoZRGnuY3eu1OaldOXyR8Hu5kcfPm0eNYf4maCc/n3xa",
+      "posts": [
+        {
+          "id": "cd36cbf9-947e-4d75-b0a3-781d68060f3c",
+          "userId": "4eef913d-260c-4187-9cec-b32aceff367b",
+          "content": "g",
+          "likes": [],
+          "createdAt": "2025-03-06T13:32:53.595Z",
+          "updatedAt": "2025-03-06T13:32:53.595Z"
+        },
+        {
+          "id": "021a3190-708a-42be-86df-5ed9bedfeb62",
+          "userId": "4eef913d-260c-4187-9cec-b32aceff367b",
+          "content": "nf",
+          "likes": [],
+          "createdAt": "2025-03-06T13:33:21.009Z",
+          "updatedAt": "2025-03-06T13:33:21.009Z"
+        },
+        {
+          "id": "f0f0d59b-1924-4b16-8c17-cb56e6043bac",
+          "userId": "4eef913d-260c-4187-9cec-b32aceff367b",
+          "content": "n",
+          "likes": [],
+          "createdAt": "2025-03-06T13:35:52.262Z",
+          "updatedAt": "2025-03-06T13:35:52.262Z"
+        },
+        {
+          "id": "53e78b57-ad72-471b-9f3f-373d5f142644",
+          "userId": "4eef913d-260c-4187-9cec-b32aceff367b",
+          "content": "m",
+          "likes": [
+            "4eef913d-260c-4187-9cec-b32aceff367b"
+          ],
+          "createdAt": "2025-03-06T13:35:55.991Z",
+          "updatedAt": "2025-03-06T13:35:55.991Z"
+        },
+        {
+          "id": "c77aae0e-6781-491b-945a-6e0511b4e41c",
+          "userId": "4eef913d-260c-4187-9cec-b32aceff367b",
+          "content": "m",
+          "likes": [
+            "4eef913d-260c-4187-9cec-b32aceff367b"
+          ],
+          "createdAt": "2025-03-06T13:35:59.699Z",
+          "updatedAt": "2025-03-06T13:35:59.699Z"
+        },
+        {
+          "id": "5e49c6c8-f826-4236-a5b8-583bfed778c1",
+          "userId": "4eef913d-260c-4187-9cec-b32aceff367b",
+          "content": "jhfbdn",
+          "likes": [],
+          "createdAt": "2025-03-06T13:40:32.842Z",
+          "updatedAt": "2025-03-06T13:40:32.842Z"
+        }
+      ],
+      "profilePic": null
+    },
+    {
+      "id": "d96660ca-e7a9-4736-8512-a606231e90df",
+      "username": "pk",
+      "email": "pk@gmail.com",
+      "age": "2",
+      "name": "pk",
+      "password": "$2a$10$cUQ9XVE/ptApbE8oQ3hDZOKAbI9adGnAadiPULkG4HBzzBMB6rhgm",
+      "posts": [
+        {
+          "id": "384e99a2-7229-449d-aaaf-45d53259f035",
+          "userId": "d96660ca-e7a9-4736-8512-a606231e90df",
+          "content": "hello",
+          "likes": [],
+          "createdAt": "2025-03-06T13:50:50.711Z",
+          "updatedAt": "2025-03-06T13:50:50.711Z"
+        }
+      ],
+      "profilePic": null
+    },
+    {
+      "id": "b9bf56f6-a43b-41c6-a0c3-604c52b28b0b",
+      "username": "yu",
+      "email": "yu@gmail.com",
+      "age": "2",
+      "name": "yu",
+      "password": "$2a$10$43oabuNPJ9SeSDcY4CWnKepJAtyuBup8iJzDBrhcAvzhU1SI/5cnu",
+      "posts": [],
+      "profilePic": null
+    }
+  ]
+}
